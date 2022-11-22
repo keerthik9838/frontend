@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+      
+<head>
+    <title>
+    </title>
+      
+    <link href = 
+"https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+            rel = "stylesheet">
+      
+    <script src = 
+"https://code.jquery.com/jquery-1.10.2.js">
+    </script>
+      
+    <script src = 
+"https://code.jquery.com/ui/1.10.4/jquery-ui.js">
+    </script>
+          
+    <style>
+  
+        /* text align for the body */
+        body {
+            text-align: center;
+        }
+  
+        /* image dimension */
+        img{
+            height: 200px;
+            width: 350px;
+        }
+  
+        /* imagelistId styling */
+        #imageListId
+        { 
+        margin: 0; 
+        padding: 0;
+        list-style-type: none;
+        }
+        #imageListId div
+        { 
+            margin: 0 4px 4px 4px;
+            padding: 0.4em;             
+            display: inline-block;
+        }
+  
+        /* Output order styling */
+        #outputvalues{
+        margin: 0 2px 2px 2px;
+        padding: 0.4em; 
+        padding-left: 1.5em;
+        width: 250px;
+        border: 2px solid dark-green; 
+        background : gray;
+        }
+        .listitemClass 
+        {
+            border: 1px solid #006400; 
+            width: 350px;     
+        }
+        .height{ 
+            height: 10px;
+        }
+    </style>
+          
+    <script>
+        $(function() {
+            $( "#imageListId" ).sortable({
+            update: function(event, ui) {
+                getIdsOfImages();
+            }//end update         
+            });
+        });
+          
+        function getIdsOfImages() {
+            var values = [];
+            $('.listitemClass').each(function (index) {
+                values.push($(this).attr("id")
+                        .replace("imageNo", ""));
+            });
+              
+            $('#outputvalues').val(values);
+        }
+    </script>
+</head>
+      
+<body>
+    <h1 style="color:green">Page</h1>
+      
+    <b>Drag and drop using jQuery UI Sortable</b>
+      
+    <div class="height"></div><br>
+      
+    <div id = "imageListId">
+        <div id="imageNo1" class = "listitemClass">
+            <img src="https://www.google.co.in/imgres?imgurl=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2015%2F04%2F23%2F22%2F00%2Ftree-736885__480.jpg&imgrefurl=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Fnature%2F&tbnid=GOm7hFq2LnbWrM&vet=12ahUKEwjwpeLUmMH7AhWf9jgGHexVBocQMygGegUIARDvAQ..i&docid=Ba_eiczVaD9-zM&w=771&h=480&q=nature%20images&ved=2ahUKEwjwpeLUmMH7AhWf9jgGHexVBocQMygGegUIARDvAQ.png" alt="">
+        </div>
+          
+        <div id="imageNo2" class = "listitemClass">
+            <img src="https://www.google.co.in/imgres?imgurl=https%3A%2F%2Fmedia.istockphoto.com%2Fid%2F517188688%2Fphoto%2Fmountain-landscape.jpg%3Fs%3D612x612%26w%3D0%26k%3D20%26c%3DA63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8%3D&imgrefurl=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fnature&tbnid=ISsdmwh92GPtrM&vet=12ahUKEwjwpeLUmMH7AhWf9jgGHexVBocQMygCegUIARDmAQ..i&docid=tnVTsEa64LdCyM&w=612&h=384&q=nature%20images&ved=2ahUKEwjwpeLUmMH7AhWf9jgGHexVBocQMygCegUIARDmAQ" alt="">
+        </div>
+  
+        <div id="imageNo3" class = "listitemClass">
+            <img src="https://www.google.co.in/imgres?imgurl=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F2662116%2Fpexels-photo-2662116.jpeg%3Fcs%3Dsrgb%26dl%3Dpexels-jaime-reimer-2662116.jpg%26fm%3Djpg&imgrefurl=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fnature%2F&tbnid=wQieVlIpCtgGrM&vet=12ahUKEwjwpeLUmMH7AhWf9jgGHexVBocQMygAegUIARDiAQ..i&docid=ShwNVOdFBcmkxM&w=5407&h=3605&itg=1&q=nature%20images&ved=2ahUKEwjwpeLUmMH7AhWf9jgGHexVBocQMygAegUIARDiAQ" alt="">
+        </div>
+  
+    </div>
+          
+    <div id="outputDiv">
+        <b>Output of ID's of images : </b>
+        <input id="outputvalues" type="text" value="" />
+    </div>
+</body>
+  
+</html>
